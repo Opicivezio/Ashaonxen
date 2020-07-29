@@ -10,7 +10,7 @@ const byeChannelComment = "Ashaonxen을 잊지 말아주세요ㅠㅠ";
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: 'Ashaonxen 봇 v.1.0.5' }, status: 'online' })
+  client.user.setPresence({ game: { name: 'Ashaonxen 봇 v.1.0.6' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
@@ -89,7 +89,7 @@ client.on('message', (message) => {
       .setFooter('Made by PLAYER', img2)
 
     message.channel.send(embed)
-  } else if(message.content == '!help') {
+  } else if(message.content == '!command') {
     let helpImg = 'https://postfiles.pstatic.net/MjAyMDA3MjhfMjYz/MDAxNTk1OTQxNTExNzEx.L7PmxCPS8OyHRXR3ApuJoTcW1OXAkfFyEkXTqMkeaGog.hpsnSNltgPtcr43dph0VDSXHYaHGmeKcsagx2rzKCmQg.JPEG.battleground_bloger/KakaoTalk_20200712_234541407.jpg?type=w773';
     let commandList = [
       {name: '!정보', desc: 'Nightmare Musik 크루 List'},
