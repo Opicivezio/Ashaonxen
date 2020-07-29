@@ -3,14 +3,14 @@ const client = new Discord.Client();
 const token = process.argv.length == 2 ? process.env.token : "";
 const moment = require("moment");
 require("moment-duration-format");
-const welcomeChannelName = "안녕하세요";
-const byeChannelName = "안녕히가세요";
-const welcomeChannelComment = "어서오세요.";
-const byeChannelComment = "안녕히가세요.";
+const welcomeChannelName = "환영합니다";
+const byeChannelName = "잘가요ㅠㅠ";
+const welcomeChannelComment = "Ashaonxen Discord방에 오신것을 환영합니다! 공지와 규칙 한번만 읽어주세요!";
+const byeChannelComment = "Ashaonxen을 잊지 말아주세요ㅠㅠ";
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: '!help를 쳐보세요.' }, status: 'online' })
+  client.user.setPresence({ game: { name: '!help' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
@@ -20,7 +20,7 @@ client.on("guildMemberAdd", (member) => {
 
   welcomeChannel.send(`<@${newUser.id}> ${welcomeChannelComment}\n`);
 
-  member.addRole(guild.roles.find(role => role.name == "게스트"));
+  member.addRole(guild.roles.find(role => role.name == "시청자"));
 });
 
 client.on("guildMemberRemove", (member) => {
@@ -34,17 +34,17 @@ client.on("guildMemberRemove", (member) => {
 client.on('message', (message) => {
   if(message.author.bot) return;
 
-  if(message.content == 'ping') {
-    return message.reply('pong');
+  if(message.content == '안녕하세요') {
+    return message.reply('Ashaonxen 디스코드방에 오신것을 환영합니다!');
   }
 
   if(message.content == '!si') {
     let embed = new Discord.RichEmbed()
-    let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
+    let img = 'https://postfiles.pstatic.net/MjAyMDA3MjhfMjYz/MDAxNTk1OTQxNTExNzEx.L7PmxCPS8OyHRXR3ApuJoTcW1OXAkfFyEkXTqMkeaGog.hpsnSNltgPtcr43dph0VDSXHYaHGmeKcsagx2rzKCmQg.JPEG.battleground_bloger/KakaoTalk_20200712_234541407.jpg?type=w773';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
     embed.setColor('#186de6')
-    embed.setAuthor('server info of 콜라곰 BOT', img)
-    embed.setFooter(`콜라곰 BOT ❤️`)
+    embed.setAuthor('server info of Ashaonxen 봇', img)
+    embed.setFooter(`PLAYER`)
     embed.addBlankField()
     embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
     embed.addField('running time', `${duration}`, true);
@@ -69,22 +69,25 @@ client.on('message', (message) => {
     message.channel.send(embed);
   }
 
-  if(message.content == 'embed') {
-    let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
+  if(message.content == '!info') {
+    let img = 'https://postfiles.pstatic.net/MjAyMDA3MjhfMjYz/MDAxNTk1OTQxNTExNzEx.L7PmxCPS8OyHRXR3ApuJoTcW1OXAkfFyEkXTqMkeaGog.hpsnSNltgPtcr43dph0VDSXHYaHGmeKcsagx2rzKCmQg.JPEG.battleground_bloger/KakaoTalk_20200712_234541407.jpg?type=w773';
+    let img2 = 'https://postfiles.pstatic.net/MjAyMDA3MjlfMTE3/MDAxNTk1OTg3OTI4MjM4.BUW6UH-rR415TVO92s4XbgIcUgu31f8HFwcBJR7s15gg.UKaWE8P95zcWGjtZsn4Ef62oJs0kOLu7IoFiWihtWP4g.PNG.battleground_bloger/PLAYER.png?type=w773';
     let embed = new Discord.RichEmbed()
-      .setTitle('타이틀')
-      .setURL('http://www.naver.com')
-      .setAuthor('나긋해', img, 'http://www.naver.com')
+      .setTitle('Ashaonxen Youtube')
+      .setURL('https://www.youtube.com/channel/UCTcuqKBwbWD0r0KXOrlaYxA')
+      .setAuthor('Ashaonxen', img, 'https://www.youtube.com/channel/UCTcuqKBwbWD0r0KXOrlaYxA')
       .setThumbnail(img)
       .addBlankField()
-      .addField('Inline field title', 'Some value here')
-      .addField('Inline field title', 'Some value here', true)
-      .addField('Inline field title', 'Some value here', true)
-      .addField('Inline field title', 'Some value here', true)
-      .addField('Inline field title', 'Some value here1\nSome value here2\nSome value here3\n')
+      .addField('PLAYER 블로그', 'https://blog.naver.com/dptuscps')
+      .addField('Ashaonxen(에션첸)', 'https://www.youtube.com/channel/UCTcuqKBwbWD0r0KXOrlaYxA', true)
+      .addField('Eeden(이덴)', 'https://www.youtube.com/channel/UCauyZwTelcO3xAcpbFFHwWA', true)
+      .addBlankField()
+      .addField('성태07(성태)', 'https://www.youtube.com/channel/UCPsNdtbKONGCjwSnEIPhWiw', true)
+      .addField('DRIP TARKO', 'https://www.youtube.com/channel/UCdEVtwqVTVeUJddchMJFKHg', true)
+      .addField('Nitmare Musik (크루멤버)', 'Ashaonxen(에션첸)\nEeden(이덴)\n성태07(성태)\nDRIP TARKO(드립타코)')
       .addBlankField()
       .setTimestamp()
-      .setFooter('나긋해가 만듬', img)
+      .setFooter('Made by PLAYER', img2)
 
     message.channel.send(embed)
   } else if(message.content == '!help') {
