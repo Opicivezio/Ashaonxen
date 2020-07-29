@@ -10,7 +10,7 @@ const byeChannelComment = "Ashaonxen을 잊지 말아주세요ㅠㅠ";
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: 'Ashaonxen 봇 v.1.0.6' }, status: 'online' })
+  client.user.setPresence({ game: { name: 'Ashaonxen 봇 v.1.0.7' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
@@ -89,10 +89,13 @@ client.on('message', (message) => {
       .setFooter('Made by PLAYER', img2)
 
     message.channel.send(embed)
-  } else if(message.content == '!command') {
+  } else if(message.content == '!에션첸 help') {
     let helpImg = 'https://postfiles.pstatic.net/MjAyMDA3MjhfMjYz/MDAxNTk1OTQxNTExNzEx.L7PmxCPS8OyHRXR3ApuJoTcW1OXAkfFyEkXTqMkeaGog.hpsnSNltgPtcr43dph0VDSXHYaHGmeKcsagx2rzKCmQg.JPEG.battleground_bloger/KakaoTalk_20200712_234541407.jpg?type=w773';
     let commandList = [
       {name: '!정보', desc: 'Nightmare Musik 크루 List'},
+      {name: '!초대코드', desc: '무제한 초대코드 생성'},
+      {name: '!전체공지', desc: '개인메세지로 전체공지메세지 보내가(관리자 이상 등급만 가능)'},
+      {name: '!청소', desc: '메세지 삭제(관리자 이상 등급만 가능)'}
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
@@ -108,21 +111,9 @@ client.on('message', (message) => {
     embed.addField('Commands: ', commandStr);
 
     message.channel.send(embed)
-  } else if(message.content == '!초대코드2') {
-    client.guilds.array().forEach(x => {
-      x.channels.find(x => x.type == 'text').createInvite({maxAge: 0}) // maxAge: 0은 무한이라는 의미, maxAge부분을 지우면 24시간으로 설정됨
-        .then(invite => {
-          message.channel.send(invite.url)
-        })
-        .catch((err) => {
-          if(err.code == 50013) {
-            message.channel.send('**'+x.channels.find(x => x.type == 'text').guild.name+'** 채널 권한이 없어 초대코드 발행 실패')
-          }
-        })
-    });
   } else if(message.content == '!초대코드') {
     if(message.channel.type == 'dm') {
-      return message.reply('dm에서 사용할 수 없는 명령어 입니다.');
+      return message.reply('개인메세지에서 사용할 수 없는 명령어 입니다.');
     }
     message.guild.channels.get(message.channel.id).createInvite({maxAge: 0}) // maxAge: 0은 무한이라는 의미, maxAge부분을 지우면 24시간으로 설정됨
       .then(invite => {
@@ -133,14 +124,14 @@ client.on('message', (message) => {
           message.channel.send('**'+message.guild.channels.get(message.channel.id).guild.name+'** 채널 권한이 없어 초대코드 발행 실패')
         }
       })
-  } else if(message.content.startsWith('!전체공지2')) {
+  } else if(message.content.startsWith('!전체공지')) {
     if(checkPermission(message)) return
     if(message.member != null) { // 채널에서 공지 쓸 때
-      let contents = message.content.slice('!전체공지2'.length);
+      let contents = message.content.slice('!전체공지'.length);
       let embed = new Discord.RichEmbed()
-        .setAuthor('공지 of 콜라곰 BOT')
+        .setAuthor('공지 of Ashaoxen Bot')
         .setColor('#186de6')
-        .setFooter(`콜라곰 BOT ❤️`)
+        .setFooter(`ASHAONXEN BOT`)
         .setTimestamp()
   
       embed.addField('공지: ', contents);
@@ -148,19 +139,6 @@ client.on('message', (message) => {
       message.member.guild.members.array().forEach(x => {
         if(x.user.bot) return;
         x.user.send(embed)
-      });
-  
-      return message.reply('공지를 전송했습니다.');
-    } else {
-      return message.reply('채널에서 실행해주세요.');
-    }
-  } else if(message.content.startsWith('!전체공지')) {
-    if(checkPermission(message)) return
-    if(message.member != null) { // 채널에서 공지 쓸 때
-      let contents = message.content.slice('!전체공지'.length);
-      message.member.guild.members.array().forEach(x => {
-        if(x.user.bot) return;
-        x.user.send(`<@${message.author.id}> ${contents}`);
       });
   
       return message.reply('공지를 전송했습니다.');
