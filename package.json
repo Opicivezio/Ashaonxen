@@ -1,0 +1,12 @@
+{
+  "name": "Ashaonxen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Ashaonxen.js",
+  "scripts": {
+    "on": "node index.js"
+  },
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  }
+}
