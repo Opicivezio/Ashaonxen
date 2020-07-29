@@ -10,7 +10,7 @@ const byeChannelComment = "Ashaonxen을 잊지 말아주세요ㅠㅠ";
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: 'Ashaonxen 봇 v.1.0.1' }, status: 'online' })
+  client.user.setPresence({ game: { name: 'Ashaonxen 봇 v.1.0.2' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
@@ -80,7 +80,7 @@ client.on('message', (message) => {
       .addBlankField()
       .addField('PLAYER 블로그', 'https://blog.naver.com/dptuscps')
       .addField('Ashaonxen(에션첸)', 'https://www.youtube.com/channel/UCTcuqKBwbWD0r0KXOrlaYxA', true)
-      .addField('Eeden(이덴)', 'https://www.youtube.com/channel/UCauyZwTelcO3xAcpbFFHwWA')
+      .addField('Eeden(이덴)', 'https://www.youtube.com/channel/UCauyZwTelcO3xAcpbFFHwWA', true)
       .addField('성태07(성태)', 'https://www.youtube.com/channel/UCPsNdtbKONGCjwSnEIPhWiw', true)
       .addField('DRIP TARKO', 'https://www.youtube.com/channel/UCdEVtwqVTVeUJddchMJFKHg', true)
       .addField('Nitmare Musik (크루멤버)', 'Ashaonxen(에션첸)\nEeden(이덴)\n성태07(성태)\nDRIP TARKO(드립타코)')
