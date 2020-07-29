@@ -79,7 +79,7 @@ client.on('message', (message) => {
       .setThumbnail(img)
       .addBlankField()
       .addField('PLAYER 블로그', 'https://blog.naver.com/dptuscps')
-      .addField('Nightmare Musik (크루멤버)', 'Ashaonxen/성태07/DRIP TARKO/Eeden')
+      .addField('Nightmare Musik (크루멤버)', 'Ashaonxen/성태/DRIP TARKO/Eeden')
       .addField('Ashaonxen', 'https://www.youtube.com/channel/UCTcuqKBwbWD0r0KXOrlaYxA')
       .addField('Eeden', 'https://www.youtube.com/channel/UCauyZwTelcO3xAcpbFFHwWA')
       .addField('성태', 'https://www.youtube.com/channel/UCPsNdtbKONGCjwSnEIPhWiw')
