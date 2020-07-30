@@ -55,6 +55,22 @@ client.on("guildMemberRemove", (member) => {
 client.on('message', (message) => {
   if(message.author.bot) return;
 
+  if(message.content.startsWith('!역할추가')) {
+    if(message.channel.type == 'dm') {
+      return message.reply('dm에서 사용할 수 없는 명령어 입니다.');
+    }
+    if(message.channel.type != 'dm' && checkPermission(message)) return
+
+    if(message.content.split('<@').length == 3) {
+      if(message.content.split(' ').length != 3) return;
+
+      var userId = message.content.split(' ')[1].match(/[\u3131-\uD79D^a-zA-Z^0-9]/ugi).join('')
+      var role = message.content.split(' ')[2].match(/[\u3131-\uD79D^a-zA-Z^0-9]/ugi).join('')
+
+      message.member.guild.members.find(x => x.id == userId).addRole(role);
+    }
+  }
+
   if(message.content == '안녕하세요') {
     return message.reply('Ashaonxen 디스코드방에 오신것을 환영합니다!');
   }
