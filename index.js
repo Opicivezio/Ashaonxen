@@ -10,11 +10,11 @@ const byeChannelComment = "Ashaonxen을 잊지 말아주세요ㅠㅠ";
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: 'Ashaonxen 봇 v.1.1.0' }, status: 'online' })
+  client.user.setPresence({ game: { name: 'Ashaonxen 봇 v.1.1.1' }, status: 'online' })
   
   let state_list = [
-    'Ashaonxen 봇 v.1.1.0',
-    '문의는 PLAYER#9642'
+    'Ashaonxen 봇 v.1.1.1',
+    '문의는 PLAYER#9642 로'
   ]
   let state_list_index = 1;
   let change_delay = 10000; //이건 초 - 1000이 1초
@@ -70,10 +70,10 @@ client.on('message', (message) => {
     embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
     embed.addField('running time', `${duration}`, true);
     embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
-    embed.addField('server',       `${client.guilds.size.toLocaleString()}`, true);
+    embed.addField('server',       `1`, true);
     // embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
-    embed.addField('Discord.js',   `v${Discord.version}`, true);
-    embed.addField('Node',         `${process.version}`, true);
+    embed.addField('Bot Version',   `v.1.1.1`, true);
+    embed.addField('탄생일',         `2020.06.29`, true);
     
     let arr = client.guilds.array();
     let list = '';
@@ -84,7 +84,7 @@ client.on('message', (message) => {
       list += `${arr[i].name}\n`
     }
     list += `\`\`\`\n`
-    embed.addField('list:',        `${list}`);
+    embed.addField('list:',        `Ashaonxen's Discord`);
 
     embed.setTimestamp()
     message.channel.send(embed);
