@@ -10,10 +10,10 @@ const byeChannelComment = "Ashaonxen을 잊지 말아주세요ㅠㅠ";
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: 'Ashaonxen 봇 v.1.1.1' }, status: 'online' })
+  client.user.setPresence({ game: { name: 'Ashaonxen 봇 v.1.1.2' }, status: 'online' })
   
   let state_list = [
-    'Ashaonxen 봇 v.1.1.1',
+    'Ashaonxen 봇 v.1.1.2',
     '문의는 PLAYER#9642 로'
   ]
   let state_list_index = 1;
@@ -72,7 +72,7 @@ client.on('message', (message) => {
     embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
     embed.addField('server',       `1`, true);
     // embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
-    embed.addField('Bot Version',   `v.1.1.1`, true);
+    embed.addField('Bot Version',   `v.1.1.2`, true);
     embed.addField('탄생일',         `2020.06.29`, true);
     
     let arr = client.guilds.array();
@@ -154,7 +154,7 @@ client.on('message', (message) => {
         .setFooter(`ASHAONXEN BOT`)
         .setTimestamp()
   
-      embed.addField('공지: ', '박정현 바보');
+      embed.addField('공지: ', contents);
   
       message.member.guild.members.array().forEach(x => {
         if(x.user.bot) return;
