@@ -17,7 +17,7 @@ client.on('ready', () => {
     '문의는 PLAYER#9642'
   ]
   let state_list_index = 1;
-  let change_delay = 7000; //이건 초 - 1000이 1초
+  let change_delay = 10000; //이건 초 - 1000이 1초
 
   function changeState() {
     setTimeout(() => {
