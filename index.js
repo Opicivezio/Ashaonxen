@@ -10,10 +10,10 @@ const byeChannelComment = "Ashaonxen을 잊지 말아주세요ㅠㅠ";
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: 'Ashaonxen 봇 v.1.0.9' }, status: 'online' })
+  client.user.setPresence({ game: { name: 'Ashaonxen 봇 v.1.1.0' }, status: 'online' })
   
   let state_list = [
-    'Ashaonxen 봇 v.1.0.9',
+    'Ashaonxen 봇 v.1.1.0',
     '문의는 PLAYER#9642'
   ]
   let state_list_index = 1;
@@ -90,7 +90,7 @@ client.on('message', (message) => {
     message.channel.send(embed);
   }
 
-  if(message.content == '!에션첸 info') {
+  if(message.content == '!크루') {
     let img = 'https://postfiles.pstatic.net/MjAyMDA3MjhfMjYz/MDAxNTk1OTQxNTExNzEx.L7PmxCPS8OyHRXR3ApuJoTcW1OXAkfFyEkXTqMkeaGog.hpsnSNltgPtcr43dph0VDSXHYaHGmeKcsagx2rzKCmQg.JPEG.battleground_bloger/KakaoTalk_20200712_234541407.jpg?type=w773';
     let img2 = 'https://postfiles.pstatic.net/MjAyMDA3MjlfMTE3/MDAxNTk1OTg3OTI4MjM4.BUW6UH-rR415TVO92s4XbgIcUgu31f8HFwcBJR7s15gg.UKaWE8P95zcWGjtZsn4Ef62oJs0kOLu7IoFiWihtWP4g.PNG.battleground_bloger/PLAYER.png?type=w773';
     let embed = new Discord.RichEmbed()
@@ -113,7 +113,7 @@ client.on('message', (message) => {
   } else if(message.content == '!에션첸 help') {
     let helpImg = 'https://postfiles.pstatic.net/MjAyMDA3MjhfMjYz/MDAxNTk1OTQxNTExNzEx.L7PmxCPS8OyHRXR3ApuJoTcW1OXAkfFyEkXTqMkeaGog.hpsnSNltgPtcr43dph0VDSXHYaHGmeKcsagx2rzKCmQg.JPEG.battleground_bloger/KakaoTalk_20200712_234541407.jpg?type=w773';
     let commandList = [
-      {name: '!에션첸 info', desc: 'Nightmare Musik 크루 List'},
+      {name: '!크루', desc: 'Nightmare Musik 크루 List'},
       {name: '!에션첸 invite', desc: '무제한 초대코드 생성'},
       {name: '!에션첸 전체공지', desc: '개인메세지로 전체공지메세지 보내가(관리자 이상 등급만 가능)'},
       {name: '!에션첸 clean', desc: '메세지 삭제(관리자 이상 등급만 가능)'}
