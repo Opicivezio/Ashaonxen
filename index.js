@@ -10,7 +10,28 @@ const byeChannelComment = "Ashaonxen을 잊지 말아주세요ㅠㅠ";
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: 'Ashaonxen 봇 v.1.0.8' }, status: 'online' })
+  client.user.setPresence({ game: { name: 'Ashaonxen 봇 v.1.0.9' }, status: 'online' })
+  
+  let state_list = [
+    '!Ashaonxen 봇 v.1.0.9',
+    '문의는 PLAYER#9642 DM으로'
+  ]
+  let state_list_index = 1;
+  let change_delay = 3000; //이건 초 - 1000이 1초
+
+  function changeState() {
+    setTimeout(() => {
+      console.log( '상태 변경 ->', state_list[state_list_index] );
+      client.user.setPresence({ game: { name: state_list[state_list_index] }, status: 'online' })
+      state_list_index += 1;
+      if(state_list_index >= state_list.length) {
+        state_list_index = 0;
+      }
+      changeState()
+    }, change_delay);
+  }
+
+  changeState();
 });
 
 client.on("guildMemberAdd", (member) => {
