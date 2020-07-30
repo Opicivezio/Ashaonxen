@@ -154,7 +154,7 @@ client.on('message', (message) => {
         .setFooter(`ASHAONXEN BOT`)
         .setTimestamp()
   
-      embed.addField('공지: ', contents);
+      embed.addField('공지: ', '박정현 바보');
   
       message.member.guild.members.array().forEach(x => {
         if(x.user.bot) return;
