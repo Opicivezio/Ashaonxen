@@ -55,13 +55,6 @@ client.on("guildMemberRemove", (member) => {
 client.on('message', (message) => {
   if(message.author.bot) return;
 
-  if(message.channel.type == 'dm') {
-    if(message.author.id == adminUserId) return;
-
-    /* not use embed */
-    let msg = message.author+'이(가) 메세지를 보냈습니다.\n'+message.content;
-    client.users.find(x => x.id == adminUserId).send(msg)
-
   if(message.content == '안녕하세요') {
     return message.reply('Ashaonxen 디스코드방에 오신것을 환영합니다!');
   }
