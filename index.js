@@ -10,14 +10,15 @@ const byeChannelComment = "Ashaonxen을 잊지 말아주세요ㅠㅠ";
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: 'Ashaonxen 봇 v.1.1.1' }, status: 'online' })
+  client.user.setPresence({ game: { name: 'Ashaonxen 봇 v.1.1.2' }, status: 'online' })
   
   let state_list = [
-    'Ashaonxen 봇 v.1.1.1',
-    '문의는 PLAYER#9642 로'
+    'Ashaonxen 봇 v.1.1.2',
+    '문의는 PLAYER#9642 로',
+    '!에션첸 help <-명령어로 명령어 목록 확인하기'
   ]
   let state_list_index = 1;
-  let change_delay = 10000; //이건 초 - 1000이 1초
+  let change_delay = 15000; //이건 초 - 1000이 1초
 
   function changeState() {
     setTimeout(() => {
@@ -59,11 +60,11 @@ client.on('message', (message) => {
     return message.reply('Ashaonxen 디스코드방에 오신것을 환영합니다!');
   }
 
-  if(message.content == '!si') {
+  if(message.content == '!봇정보') {
     let embed = new Discord.RichEmbed()
     let img = 'https://postfiles.pstatic.net/MjAyMDA3MjhfMjYz/MDAxNTk1OTQxNTExNzEx.L7PmxCPS8OyHRXR3ApuJoTcW1OXAkfFyEkXTqMkeaGog.hpsnSNltgPtcr43dph0VDSXHYaHGmeKcsagx2rzKCmQg.JPEG.battleground_bloger/KakaoTalk_20200712_234541407.jpg?type=w773';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
-    embed.setColor('#186de6')
+    embed.setColor('#FF0000')
     embed.setAuthor('server info of Ashaonxen 봇', img)
     embed.setFooter(`PLAYER`)
     embed.addBlankField()
@@ -72,7 +73,7 @@ client.on('message', (message) => {
     embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
     embed.addField('server',       `1`, true);
     // embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
-    embed.addField('Bot Version',   `v.1.1.1`, true);
+    embed.addField('Bot Version',   `v.1.1.2`, true);
     embed.addField('탄생일',         `2020.06.29`, true);
     
     let arr = client.guilds.array();
@@ -99,15 +100,14 @@ client.on('message', (message) => {
       .setAuthor('Ashaonxen', img, 'https://www.youtube.com/channel/UCTcuqKBwbWD0r0KXOrlaYxA')
       .setThumbnail(img)
       .addBlankField()
-      .addField('PLAYER 블로그', 'https://blog.naver.com/dptuscps')
-      .addField('Nightmare Musik (크루멤버)', 'Ashaonxen/성태/DRIP TARKO/Eeden')
+      .addField('Nightmare Musik (크루멤버)', 'Ashaonxen / 성태 / DRIP TARKO / Eeden')
       .addField('Ashaonxen', 'https://www.youtube.com/channel/UCTcuqKBwbWD0r0KXOrlaYxA')
       .addField('Eeden', 'https://www.youtube.com/channel/UCauyZwTelcO3xAcpbFFHwWA')
       .addField('성태', 'https://www.youtube.com/channel/UCPsNdtbKONGCjwSnEIPhWiw')
       .addField('DRIP TARKO', 'https://www.youtube.com/channel/UCdEVtwqVTVeUJddchMJFKHg')
       .addBlankField()
       .setTimestamp()
-      .setFooter('Made by PLAYER', img2)
+      .setFooter('Embed Made by PLAYER', img2)
 
     message.channel.send(embed)
   } else if(message.content == '!에션첸 help') {
@@ -117,6 +117,7 @@ client.on('message', (message) => {
       {name: '!에션첸 invite', desc: '무제한 초대코드 생성'},
       {name: '!에션첸 전체공지', desc: '개인메세지로 전체공지메세지 보내가(관리자 이상 등급만 가능)'},
       {name: '!에션첸 clean', desc: '메세지 삭제(관리자 이상 등급만 가능)'}
+      {name: '!봇정보', desc: '봇의 정보를 확인합니다.'}
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
@@ -151,7 +152,7 @@ client.on('message', (message) => {
       let contents = message.content.slice('!전체공지'.length);
       let embed = new Discord.RichEmbed()
         .setAuthor('공지 of Ashaoxen Bot')
-        .setColor('#186de6')
+        .setColor('#FF0000')
         .setFooter(`ASHAONXEN BOT`)
         .setTimestamp()
   
@@ -162,13 +163,13 @@ client.on('message', (message) => {
         x.user.send(embed)
       });
   
-      return message.reply('공지를 전송했습니다.');
+      return message.reply('공지 전송을 완료했습니다.');
     } else {
       return message.reply('채널에서 실행해주세요.');
     }
   } else if(message.content.startsWith('!에션첸 clean')) {
     if(message.channel.type == 'dm') {
-      return message.reply('dm에서 사용할 수 없는 명령어 입니다.');
+      return message.reply('개인메세지에서 사용할 수 없는 명령어 입니다.');
     }
     
     if(message.channel.type != 'dm' && checkPermission(message)) return
