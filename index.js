@@ -13,11 +13,11 @@ client.on('ready', () => {
   client.user.setPresence({ game: { name: 'Ashaonxen 봇 v.1.0.9' }, status: 'online' })
   
   let state_list = [
-    '!Ashaonxen 봇 v.1.0.9',
-    '문의는 PLAYER#9642 DM으로'
+    'Ashaonxen 봇 v.1.0.9',
+    '문의는 PLAYER#9642'
   ]
   let state_list_index = 1;
-  let change_delay = 3000; //이건 초 - 1000이 1초
+  let change_delay = 7000; //이건 초 - 1000이 1초
 
   function changeState() {
     setTimeout(() => {
