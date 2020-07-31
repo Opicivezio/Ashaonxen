@@ -7,7 +7,6 @@ const welcomeChannelName = "환영합니다";
 const byeChannelName = "잘가요ㅠㅠ";
 const welcomeChannelComment = "Ashaonxen Discord방에 오신것을 환영합니다! 공지와 규칙 한번만 읽어주세요!";
 const byeChannelComment = "Ashaonxen을 잊지 말아주세요ㅠㅠ";
-const adminUserId = 250693463065100298;
 
 client.on('ready', () => {
   console.log('켰다.');
@@ -43,7 +42,7 @@ client.on("guildMemberAdd", (member) => {
 
   welcomeChannel.send(`<@${newUser.id}> ${welcomeChannelComment}\n`);
 
-  member.addRole(guild.roles.find(role => role.name == "DYB UCC MEMBER"));
+  member.addRole(guild.roles.find(role => role.name == "시청자"));
 });
 
 client.on("guildMemberRemove", (member) => {
@@ -59,6 +58,10 @@ client.on('message', (message) => {
 
   if(message.content == '안녕하세요') {
     return message.reply('Ashaonxen 디스코드방에 오신 것을 환영합니다!');
+  }
+
+  if(message.content == '!서버제작') {
+    return message.reply('서버제작자 : PLAYER')
   }
 
   if(message.content == '!봇정보') {
@@ -111,21 +114,6 @@ client.on('message', (message) => {
       .setFooter('Embed Made by PLAYER', img2)
 
     message.channel.send(embed)
-  } else if(message.content == '!서버제작') {
-    let img3 = 'https://postfiles.pstatic.net/MjAyMDA3MjlfMTE3/MDAxNTk1OTg3OTI4MjM4.BUW6UH-rR415TVO92s4XbgIcUgu31f8HFwcBJR7s15gg.UKaWE8P95zcWGjtZsn4Ef62oJs0kOLu7IoFiWihtWP4g.PNG.battleground_bloger/PLAYER.png?type=w773';
-    let img4 = 'https://postfiles.pstatic.net/MjAyMDA3MjhfMjYz/MDAxNTk1OTQxNTExNzEx.L7PmxCPS8OyHRXR3ApuJoTcW1OXAkfFyEkXTqMkeaGog.hpsnSNltgPtcr43dph0VDSXHYaHGmeKcsagx2rzKCmQg.JPEG.battleground_bloger/KakaoTalk_20200712_234541407.jpg?type=w773';
-    let embed = new Discord.RichEmbed()
-      .setTitle('서버제작자')
-      .setAuthor('Ashaonxen Bot', img4)
-      .setThumbnail(img4)
-      .addBlankField()
-      .addField('서버제작자', '`PLAYER#9642`')
-      .addField('제작에 도움을 준 사람', '`MowY#8644`')
-      .addBlankField()
-      .setTimestamp()
-      .setFooter('Embed Made by PLYER', img3)
-
-    message.channal.send(embed)
   } else if(message.content == '!에션첸 help') {
     let helpImg = 'https://postfiles.pstatic.net/MjAyMDA3MjhfMjYz/MDAxNTk1OTQxNTExNzEx.L7PmxCPS8OyHRXR3ApuJoTcW1OXAkfFyEkXTqMkeaGog.hpsnSNltgPtcr43dph0VDSXHYaHGmeKcsagx2rzKCmQg.JPEG.battleground_bloger/KakaoTalk_20200712_234541407.jpg?type=w773';
     let commandList = [
