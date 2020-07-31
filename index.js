@@ -11,10 +11,10 @@ const adminUserId = 250693463065100298;
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: 'Ashaonxen 봇 v.1.1.3' }, status: 'online' })
+  client.user.setPresence({ game: { name: 'Ashaonxen 봇 v.1.2.0' }, status: 'online' })
   
   let state_list = [
-    'Ashaonxen 봇 v.1.1.3',
+    'Ashaonxen 봇 v.1.2.0',
     '문의는 PLAYER#9642 로',
     '!에션첸 help 로 명령어확인',
   ]
@@ -74,7 +74,7 @@ client.on('message', (message) => {
     embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
     embed.addField('server',       `1`, true);
     // embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
-    embed.addField('Bot Version',   `v.1.1.3`, true);
+    embed.addField('Bot Version',   `v.1.2.0`, true);
     embed.addField('탄생일',         `2020.06.29`, true);
     
     let arr = client.guilds.array();
@@ -111,13 +111,29 @@ client.on('message', (message) => {
       .setFooter('Embed Made by PLAYER', img2)
 
     message.channel.send(embed)
+  } else if(message.content == '!서버제작') {
+    let img3 = 'https://postfiles.pstatic.net/MjAyMDA3MjlfMTE3/MDAxNTk1OTg3OTI4MjM4.BUW6UH-rR415TVO92s4XbgIcUgu31f8HFwcBJR7s15gg.UKaWE8P95zcWGjtZsn4Ef62oJs0kOLu7IoFiWihtWP4g.PNG.battleground_bloger/PLAYER.png?type=w773';
+    let img4 = 'https://postfiles.pstatic.net/MjAyMDA3MjhfMjYz/MDAxNTk1OTQxNTExNzEx.L7PmxCPS8OyHRXR3ApuJoTcW1OXAkfFyEkXTqMkeaGog.hpsnSNltgPtcr43dph0VDSXHYaHGmeKcsagx2rzKCmQg.JPEG.battleground_bloger/KakaoTalk_20200712_234541407.jpg?type=w773';
+    let embed = new Discord.RichEmbed()
+      .setTitle('서버제작자')
+      .setAuthor('Ashaonxen Bot', img4)
+      .setThumbnail(img4)
+      .addBlankField()
+      .addField('서버제작자', '`PLAYER#9642`')
+      .addField('제작에 도움을 준 사람', '`MowY#8644`')
+      .addBlankField()
+      .setTimestamp()
+      .setFooter('Embed Made by PLYER', img3)
+
+    message.channal.send(embed)
   } else if(message.content == '!에션첸 help') {
     let helpImg = 'https://postfiles.pstatic.net/MjAyMDA3MjhfMjYz/MDAxNTk1OTQxNTExNzEx.L7PmxCPS8OyHRXR3ApuJoTcW1OXAkfFyEkXTqMkeaGog.hpsnSNltgPtcr43dph0VDSXHYaHGmeKcsagx2rzKCmQg.JPEG.battleground_bloger/KakaoTalk_20200712_234541407.jpg?type=w773';
     let commandList = [
       {name: '!크루', desc: 'Nightmare Musik 크루 List'},
       {name: '!에션첸 invite', desc: '무제한 초대코드 생성'},
       {name: '!에션첸 전체공지', desc: '개인메세지로 전체공지메세지 보내가(관리자 이상 등급만 가능)'},
-      {name: '!에션첸 clean', desc: '메세지 삭제(관리자 이상 등급만 가능)'}
+      {name: '!에션첸 clean', desc: '메세지 삭제(관리자 이상 등급만 가능)'},
+      {name: '!서버제작', desc: '서버제작자 확인'}
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
