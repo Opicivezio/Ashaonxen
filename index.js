@@ -171,7 +171,7 @@ client.on('message', (message) => {
       return message.reply('dm에서 사용할 수 없는 명령어 입니다.');
     }
     
-    if(message.channel.type != 'dm') return
+    if(message.channel.type != 'dm' && checkPermission(message)) return
 
     var clearLine = message.content.slice('!에션첸 clean '.length);
     var isNum = !isNaN(clearLine)
