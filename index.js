@@ -59,6 +59,10 @@ client.on('message', (message) => {
     return message.reply('Ashaonxen 디스코드방에 오신것을 환영합니다!');
   }
 
+  if(message.content == 'ㅗ') {
+    AutoMsgDelete(`<@${message.author.id}> ` + "욕 사용으로 메세지 삭제합니다.");
+  }
+
   if(message.content == '!봇정보') {
     let embed = new Discord.RichEmbed()
     let img = 'https://postfiles.pstatic.net/MjAyMDA3MjhfMjYz/MDAxNTk1OTQxNTExNzEx.L7PmxCPS8OyHRXR3ApuJoTcW1OXAkfFyEkXTqMkeaGog.hpsnSNltgPtcr43dph0VDSXHYaHGmeKcsagx2rzKCmQg.JPEG.battleground_bloger/KakaoTalk_20200712_234541407.jpg?type=w773';
