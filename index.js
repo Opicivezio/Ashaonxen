@@ -11,11 +11,12 @@ const adminUserId = 250693463065100298;
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: 'Ashaonxen 봇 v.1.1.2' }, status: 'online' })
+  client.user.setPresence({ game: { name: 'Ashaonxen 봇 v.1.1.3' }, status: 'online' })
   
   let state_list = [
-    'Ashaonxen 봇 v.1.1.2',
-    '문의는 PLAYER#9642 로'
+    'Ashaonxen 봇 v.1.1.3',
+    '문의는 PLAYER#9642 로',
+    '!에션첸 help 로 명령어확인',
   ]
   let state_list_index = 1;
   let change_delay = 10000; //이건 초 - 1000이 1초
@@ -56,8 +57,8 @@ client.on("guildMemberRemove", (member) => {
 client.on('message', (message) => {
   if(message.author.bot) return;
 
-  if(message.content == 'ㅋ') {
-    return message.reply('ㅅㅂ');
+  if(message.content == '안녕하세요') {
+    return message.reply('Ashaonxen 디스코드방에 오신 것을 환영합니다!');
   }
 
   if(message.content == '!봇정보') {
@@ -73,7 +74,7 @@ client.on('message', (message) => {
     embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
     embed.addField('server',       `1`, true);
     // embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
-    embed.addField('Bot Version',   `v.1.1.2`, true);
+    embed.addField('Bot Version',   `v.1.1.3`, true);
     embed.addField('탄생일',         `2020.06.29`, true);
     
     let arr = client.guilds.array();
