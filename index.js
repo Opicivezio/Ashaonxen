@@ -7,6 +7,7 @@ const welcomeChannelName = "환영합니다";
 const byeChannelName = "잘가요ㅠㅠ";
 const welcomeChannelComment = "Ashaonxen Discord방에 오신것을 환영합니다! 공지와 규칙 한번만 읽어주세요!";
 const byeChannelComment = "Ashaonxen을 잊지 말아주세요ㅠㅠ";
+const adminUserId = 250693463065100298;
 
 client.on('ready', () => {
   console.log('켰다.');
@@ -170,7 +171,7 @@ client.on('message', (message) => {
       return message.reply('dm에서 사용할 수 없는 명령어 입니다.');
     }
     
-    if(message.channel.type != 'dm' && checkPermission(message)) return
+    if(message.channel.type != 'dm' && ) return
 
     var clearLine = message.content.slice('!에션첸 clean '.length);
     var isNum = !isNaN(clearLine)
