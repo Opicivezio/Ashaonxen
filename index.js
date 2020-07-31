@@ -60,7 +60,7 @@ client.on('message', (message) => {
   }
 
   if(message.content == 'ㅗ') {
-    AutoMsgDelete(`<@${message.author.id}> ` + "욕 사용으로 메세지 삭제합니다.");
+    return message.AutoMsgDelete(`<@${message.author.id}> ` + "욕 사용으로 메세지 삭제합니다.");
   }
 
   if(message.content == '!봇정보') {
