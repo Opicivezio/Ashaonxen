@@ -146,7 +146,7 @@ client.on('message', (message) => {
         }
       })
   } else if(message.content.startsWith('!에션첸 전체공지')) {
-    if(checkPermission(message)) return
+    //if(checkPermission(message)) return
     if(message.member != null) { // 채널에서 공지 쓸 때
       let contents = message.content.slice('!에션첸 전체공지'.length);
       let embed = new Discord.RichEmbed()
