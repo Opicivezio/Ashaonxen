@@ -42,7 +42,7 @@ client.on("guildMemberAdd", (member) => {
 
   welcomeChannel.send(`<@${newUser.id}> ${welcomeChannelComment}\n`);
 
-  member.addRole(guild.roles.find(role => role.name == "시청자"));
+  member.addRole(guild.roles.find(role => role.name == "DYB UCC MEMBER"));
 });
 
 client.on("guildMemberRemove", (member) => {
