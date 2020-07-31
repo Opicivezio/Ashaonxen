@@ -56,8 +56,8 @@ client.on("guildMemberRemove", (member) => {
 client.on('message', (message) => {
   if(message.author.bot) return;
 
-  if(message.content == '안녕하세요') {
-    return message.reply('Ashaonxen 디스코드방에 오신것을 환영합니다!');
+  if(message.content == 'ㅋ') {
+    return message.reply('ㅅㅂ');
   }
 
   if(message.content == '!봇정보') {
