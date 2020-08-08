@@ -67,7 +67,7 @@ client.on('message', (message) => {
     .addField('서버제작 도움', '<@657469014209200138>')
     message.channel.send(exampleEmbed)
   }
-
+  
   if(message.content == '!봇정보') {
     let embed = new Discord.RichEmbed()
     let img = 'https://postfiles.pstatic.net/MjAyMDA3MjhfMjYz/MDAxNTk1OTQxNTExNzEx.L7PmxCPS8OyHRXR3ApuJoTcW1OXAkfFyEkXTqMkeaGog.hpsnSNltgPtcr43dph0VDSXHYaHGmeKcsagx2rzKCmQg.JPEG.battleground_bloger/KakaoTalk_20200712_234541407.jpg?type=w773';
