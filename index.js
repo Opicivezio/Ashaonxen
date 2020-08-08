@@ -13,7 +13,7 @@ client.on('ready', () => {
   client.user.setPresence({ game: { name: 'Ashaonxen 봇 v.1.2.0' }, status: 'online' })
   
   let state_list = [
-    'Ashaonxen 봇 v.1.2.0',
+    'Ashaonxen 봇 v.1.2.1',
     '문의는 PLAYER#9642 로',
     '!에션첸 help 로 명령어확인',
   ]
@@ -61,7 +61,11 @@ client.on('message', (message) => {
   }
 
   if(message.content == '!서버제작') {
-    return message.reply('서버제작자 : PLAYER')
+    const exampleEmbed = new Discord.RichEmbed()
+    .setColor('#ffffff')
+    .addField('서버제작자', '<@728076999494467615>')
+    .addField('서버제작 도움', '<@657469014209200138>')
+    message.channel.send(exampleEmbed)
   }
 
   if(message.content == '!봇정보') {
