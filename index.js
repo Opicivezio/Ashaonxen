@@ -39,8 +39,10 @@ client.on("guildMemberAdd", (member) => {
   const guild = member.guild;
   const newUser = member.user;
   const welcomeChannel = guild.channels.find(channel => channel.name == welcomeChannelName);
-
-  welcomeChannel.send(`<@${newUser.id}> ${welcomeChannelComment}\n`);
+  const exampleEmbed = new Discord.RichEmbed()
+  .setColor('#000000')
+  .addField('환영합니다!', `<@${newUser.id}>님, ${welcomeChannelComment}`)
+  welcomeChannel.send(exampleEmbed)
 
   member.addRole(guild.roles.find(role => role.name == "시청자"));
 });
@@ -49,15 +51,19 @@ client.on("guildMemberRemove", (member) => {
   const guild = member.guild;
   const deleteUser = member.user;
   const byeChannel = guild.channels.find(channel => channel.name == byeChannelName);
-
-  byeChannel.send(`<@${deleteUser.id}> ${byeChannelComment}\n`);
+  const exampleEmbed = new Discord.RichEmbed()
+  .setcolor('#000000')
+  .addField('안녕하가세요', `<@${deleteUser.id}>님, ${byeChannelComment}`)
+  byeChannel.send(exampleEmbed)
 });
 
 client.on('message', (message) => {
   if(message.author.bot) return;
 
   if(message.content == '안녕하세요') {
-    return message.reply('Ashaonxen 디스코드방에 오신 것을 환영합니다!');
+    const exampleEmbed = new Discord.RichEmbed()
+    .setcolor('#000000')
+    .addField('환영합니다!', `<@${message.author.id}님, 에션첸 디스코드방에 오신 것을 환영합니다! 공지사항, 규칙 한번씩만 읽어주세요`)
   }
 
   if(message.content == '.서버제작') {
@@ -82,7 +88,7 @@ client.on('message', (message) => {
     message.channel.send(exampleEmbed)
   }
   
-  if(message.content == '.봇정보') {
+  if(message.content == '.info') {
     let embed = new Discord.RichEmbed()
     let img = 'https://postfiles.pstatic.net/MjAyMDA3MjhfMjYz/MDAxNTk1OTQxNTExNzEx.L7PmxCPS8OyHRXR3ApuJoTcW1OXAkfFyEkXTqMkeaGog.hpsnSNltgPtcr43dph0VDSXHYaHGmeKcsagx2rzKCmQg.JPEG.battleground_bloger/KakaoTalk_20200712_234541407.jpg?type=w773';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
@@ -95,8 +101,8 @@ client.on('message', (message) => {
     embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
     embed.addField('server',       `1`, true);
     // embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
-    embed.addField('Bot Version',   `v.1.2.0`, true);
-    embed.addField('탄생일',         `2020.06.29`, true);
+    embed.addField('Bot Version',   `v.1.3.0`, true);
+    embed.addField('탄생일',         `2020.07.29`, true);
     
     let arr = client.guilds.array();
     let list = '';
@@ -132,7 +138,7 @@ client.on('message', (message) => {
       .setFooter('Embed Made by PLAYER', img2)
 
     message.channel.send(embed)
-  } else if(message.content == '!에션첸 help') {
+  } else if(message.content == '.help') {
     let helpImg = 'https://postfiles.pstatic.net/MjAyMDA3MjhfMjYz/MDAxNTk1OTQxNTExNzEx.L7PmxCPS8OyHRXR3ApuJoTcW1OXAkfFyEkXTqMkeaGog.hpsnSNltgPtcr43dph0VDSXHYaHGmeKcsagx2rzKCmQg.JPEG.battleground_bloger/KakaoTalk_20200712_234541407.jpg?type=w773';
     let commandList = [
       {name: '.크루', desc: 'Nightmare Musik 크루 List'},
