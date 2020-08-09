@@ -15,7 +15,7 @@ client.on('ready', () => {
   let state_list = [
     'Ashaonxen 봇 v.1.3.0',
     '문의는 PLAYER#9642 로',
-    '!에션첸 help 로 명령어확인',
+    '.help 로 명령어확인',
   ]
   let state_list_index = 1;
   let change_delay = 10000; //이건 초 - 1000이 1초
@@ -60,7 +60,7 @@ client.on('message', (message) => {
     return message.reply('Ashaonxen 디스코드방에 오신 것을 환영합니다!');
   }
 
-  if(message.content == '!서버제작') {
+  if(message.content == '.서버제작') {
     const exampleEmbed = new Discord.RichEmbed()
     .setColor('#ffffff')
     .addField('서버제작자', '<@728076999494467615>')
@@ -68,21 +68,21 @@ client.on('message', (message) => {
     message.channel.send(exampleEmbed)
   }
 
-  if(message.content == '!ping') {
+  if(message.content == '.ping') {
     const exampleEmbed = new Discord.RichEmbed()
     .setColor('#000000')
     .addField('Ashaonxen Bot Ping', `봇 지연시간 - ${client.ping}m/s`)
     message.channel.send(exampleEmbed)
   }
 
-  if(message.content == '!ID') {
+  if(message.content == '.ID') {
     const exampleEmbed = new Discord.RichEmbed()
     .setColor('#000000')
     .addField('Discord ID', `<@${message.author.id}>님의 아이디는 ${message.author.id} 입니다.`)
     message.channel.send(exampleEmbed)
   }
   
-  if(message.content == '!봇정보') {
+  if(message.content == '.봇정보') {
     let embed = new Discord.RichEmbed()
     let img = 'https://postfiles.pstatic.net/MjAyMDA3MjhfMjYz/MDAxNTk1OTQxNTExNzEx.L7PmxCPS8OyHRXR3ApuJoTcW1OXAkfFyEkXTqMkeaGog.hpsnSNltgPtcr43dph0VDSXHYaHGmeKcsagx2rzKCmQg.JPEG.battleground_bloger/KakaoTalk_20200712_234541407.jpg?type=w773';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
@@ -113,7 +113,7 @@ client.on('message', (message) => {
     message.channel.send(embed);
   }
 
-  if(message.content == '!크루') {
+  if(message.content == '.크루') {
     let img = 'https://postfiles.pstatic.net/MjAyMDA3MjhfMjYz/MDAxNTk1OTQxNTExNzEx.L7PmxCPS8OyHRXR3ApuJoTcW1OXAkfFyEkXTqMkeaGog.hpsnSNltgPtcr43dph0VDSXHYaHGmeKcsagx2rzKCmQg.JPEG.battleground_bloger/KakaoTalk_20200712_234541407.jpg?type=w773';
     let img2 = 'https://postfiles.pstatic.net/MjAyMDA3MjlfMTE3/MDAxNTk1OTg3OTI4MjM4.BUW6UH-rR415TVO92s4XbgIcUgu31f8HFwcBJR7s15gg.UKaWE8P95zcWGjtZsn4Ef62oJs0kOLu7IoFiWihtWP4g.PNG.battleground_bloger/PLAYER.png?type=w773';
     let embed = new Discord.RichEmbed()
@@ -135,13 +135,13 @@ client.on('message', (message) => {
   } else if(message.content == '!에션첸 help') {
     let helpImg = 'https://postfiles.pstatic.net/MjAyMDA3MjhfMjYz/MDAxNTk1OTQxNTExNzEx.L7PmxCPS8OyHRXR3ApuJoTcW1OXAkfFyEkXTqMkeaGog.hpsnSNltgPtcr43dph0VDSXHYaHGmeKcsagx2rzKCmQg.JPEG.battleground_bloger/KakaoTalk_20200712_234541407.jpg?type=w773';
     let commandList = [
-      {name: '!크루', desc: 'Nightmare Musik 크루 List'},
-      {name: '!에션첸 invite', desc: '무제한 초대코드 생성'},
-      {name: '!에션첸 전체공지', desc: '개인메세지로 전체공지메세지 보내가(관리자 이상 등급만 가능)'},
-      {name: '!에션첸 clean', desc: '메세지 삭제(관리자 이상 등급만 가능)'},
-      {name: '!서버제작', desc: '서버제작자 확인'},
-      {name: '!ping', desc: '봇 지연시간 확인'},
-      {name : '!ID', desc: '자신의 아이디 확인'},
+      {name: '.크루', desc: 'Nightmare Musik 크루 List'},
+      {name: '.초대코드', desc: '무제한 초대코드 생성'},
+      {name: '.전체공지', desc: '개인메세지로 전체공지메세지 보내가(관리자 이상 등급만 가능)'},
+      {name: '.청소', desc: '메세지 삭제(관리자 이상 등급만 가능)'},
+      {name: '.서버제작', desc: '서버제작자 확인'},
+      {name: '.ping', desc: '봇 지연시간 확인'},
+      {name: '.ID', desc: '자신의 아이디 확인'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
@@ -157,7 +157,7 @@ client.on('message', (message) => {
     embed.addField('Commands: ', commandStr);
 
     message.channel.send(embed)
-  } else if(message.content == '!에션첸 invite') {
+  } else if(message.content == '.invite') {
     if(message.channel.type == 'dm') {
       return message.reply('개인메세지에서 사용할 수 없는 명령어 입니다.');
     }
@@ -170,10 +170,10 @@ client.on('message', (message) => {
           message.channel.send('**'+message.guild.channels.get(message.channel.id).guild.name+'** 채널 권한이 없어 초대코드 발행 실패')
         }
       })
-  } else if(message.content.startsWith('!에션첸 전체공지')) {
+  } else if(message.content.startsWith('.전체공지')) {
     if(checkPermission(message)) return
     if(message.member != null) { // 채널에서 공지 쓸 때
-      let contents = message.content.slice('!에션첸 전체공지'.length);
+      let contents = message.content.slice('.전체공지'.length);
       let embed = new Discord.RichEmbed()
         .setAuthor('공지 of Ashaoxen Bot')
         .setColor('#186de6')
@@ -198,7 +198,7 @@ client.on('message', (message) => {
     
     if(message.channel.type != 'dm' && checkPermission(message)) return
 
-    var clearLine = message.content.slice('!에션첸 clean '.length);
+    var clearLine = message.content.slice('.청소 '.length);
     var isNum = !isNaN(clearLine)
 
     if(isNum && (clearLine <= 0 || 100 < clearLine)) {
