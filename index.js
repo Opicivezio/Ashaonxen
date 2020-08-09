@@ -13,7 +13,7 @@ client.on('ready', () => {
   client.user.setPresence({ game: { name: 'Ashaonxen 봇 v.1.2.0' }, status: 'online' })
   
   let state_list = [
-    'Ashaonxen 봇 v.1.2.1',
+    'Ashaonxen 봇 v.1.3.0',
     '문의는 PLAYER#9642 로',
     '!에션첸 help 로 명령어확인',
   ]
@@ -65,6 +65,20 @@ client.on('message', (message) => {
     .setColor('#ffffff')
     .addField('서버제작자', '<@728076999494467615>')
     .addField('서버제작 도움', '<@657469014209200138>')
+    message.channel.send(exampleEmbed)
+  }
+
+  if(message.content == '!ping') {
+    const exampleEmbed = new Discord.RichEmbed()
+    .setColor('#000000')
+    .addField('Ashaonxen Bot Ping', `봇 지연시간 - ${client.ping}m/s`)
+    message.channel.send(exampleEmbed)
+  }
+
+  if(message.content == '!ID') {
+    const exampleEmbed = new Discord.RichEmbed()
+    .setColor('#000000')
+    .addField('Discord ID', `<@${message.author.id}>님의 아이디는 ${message.author.id} 입니다.`)
     message.channel.send(exampleEmbed)
   }
   
@@ -125,7 +139,9 @@ client.on('message', (message) => {
       {name: '!에션첸 invite', desc: '무제한 초대코드 생성'},
       {name: '!에션첸 전체공지', desc: '개인메세지로 전체공지메세지 보내가(관리자 이상 등급만 가능)'},
       {name: '!에션첸 clean', desc: '메세지 삭제(관리자 이상 등급만 가능)'},
-      {name: '!서버제작', desc: '서버제작자 확인'}
+      {name: '!서버제작', desc: '서버제작자 확인'},
+      {name: '!ping', desc: '봇 지연시간 확인'},
+      {name : '!ID', desc: '자신의 아이디 확인'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
