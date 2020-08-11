@@ -64,6 +64,7 @@ client.on('message', (message) => {
     const exampleEmbed = new Discord.RichEmbed()
     .setcolor('#000000')
     .addField('환영합니다!', `<@${message.author.id}님, 에션첸 디스코드방에 오신 것을 환영합니다! 공지사항, 규칙 한번씩만 읽어주세요`)
+    message.channel.send(exampleEmbed)
   }
 
   if(message.content == '.서버제작') {
@@ -148,6 +149,7 @@ client.on('message', (message) => {
       {name: '.서버제작', desc: '서버제작자 확인'},
       {name: '.ping', desc: '봇 지연시간 확인'},
       {name: '.ID', desc: '자신의 아이디 확인'},
+      {name: '.dice', desc: '1~6 주사위 굴리기'}
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
@@ -235,6 +237,13 @@ client.on('message', (message) => {
         })
         .catch(console.error)
     }
+  } else if(message.content.startsWith('.dice')) {
+    let min = 1;
+    let max = 6;
+    let dice_num = parselent(Math.random() * (max - min) + min);
+    const exampleEmbed = new Discord.RichEmbed()
+    .addField('주사위', `${dice_num}이 나왔습니다`);
+    message.channel.send(exampleEmbed)
   }
 });
 
