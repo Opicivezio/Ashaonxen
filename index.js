@@ -241,9 +241,7 @@ client.on('message', (message) => {
     let min = 1;
     let max = 6;
     let dice_num = parselent(Math.random() * (max - min) + min);
-    const exampleEmbed = new Discord.RichEmbed()
-    .addField('주사위', `${dice_num}이 나왔습니다`);
-    message.channel.send(exampleEmbed)
+    message.channel.send(`${dice_num}이 나왔습니다.`)
   }
 });
 
