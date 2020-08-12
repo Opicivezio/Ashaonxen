@@ -240,7 +240,7 @@ client.on('message', (message) => {
   } else if(message.content.startsWith('.dice')) {
     let min = 1;
     let max = 6;
-    let dice_num = parselent(Math.random() * (max - min) + min);
+    let dice_num = parseFloat(Math.random() * (max - min) + min);
     message.channel.send(`${dice_num}이 나왔습니다.`)
   }
 });
